@@ -3,16 +3,18 @@
 ##Getting Started
 Optimizely's Python client library is an interface to its [REST API](http://developers.optimizely.com/rest/).
 
-The `optimizely` Python module can be installed via `pip` using the command `pip install git+git://github.com/optimizely/optimizely-client-python.git`.
+The `optimizely` Python module can be installed via `pip` using the command `pip install optimizely`.
 
 ###Authentication
-Every API request needs to be authenticated. To authenticate, use a token generated from [optimizely.com/tokens](https://www.optimizely.com/tokens), then pass it to the Optimizely client object.
+The constructor takes in a API key and token type. We support two token types: `oauth` and `legacy`. OAuth refers to a token that was generated via OAuth and legacy is a standard API token, which can be generated from [optimizely.com/tokens](https://www.optimizely.com/tokens). 
+
+`optimizely.Client(api_key, token_type)`
 
 In the following examples, `client` refers to a `Client` object created using the code below.
 
 ```python
 >>> import optimizely
->>> client = optimizely.Client('abcdefghijklmnopqrstuvwxyz:123456')
+>>> client = optimizely.Client('abcdefghijklmnopqrstuvwxyz:123456', 'oauth')
 ```
 
 ###Exceptions
@@ -361,7 +363,7 @@ See [the Optimizely REST API documentation](http://developers.optimizely.com/res
 ```
 
 ###Get Experiment Results (Stats Engine)
-To list stats engine results, call stats on the associated `Experiment` object.
+To list [Stats Engine results](https://help.optimizely.com/hc/en-us/articles/200039895-Stats-Engine-How-Optimizely-calculates-results-to-enable-business-decisions?flash_digest=ffd1e1a116256b019e5e8109aa843548129129ae), call stats on the associated `Experiment` object.
 
 This function may return a `ServiceUnavailableError` when the associated endpoint is overloaded. If you experience any issues please email us at [developers@optimizely.com](mailto:developers@optimizely.com).
 
