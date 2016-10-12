@@ -6,7 +6,7 @@ import requests
 from optimizely import error
 from optimizely import resource
 
-BASE_URL = 'https://www.optimizelyapis.com/experiment/v1/'
+BASE_URL = 'https://api.optimizely.com/v1/'
 
 VALID_TOKEN_TYPES = ('legacy', 'oauth')
 
