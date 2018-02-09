@@ -3,8 +3,8 @@ __all__ = ['Client']
 import urlparse
 import requests
 
-from optimizely import error
-from optimizely import resource
+from optimizely_ee import error
+from optimizely_ee import resource
 
 BASE_URL = 'https://www.optimizelyapis.com/experiment/v1/'
 
